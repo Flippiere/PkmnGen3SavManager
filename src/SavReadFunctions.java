@@ -113,8 +113,15 @@ public class SavReadFunctions {
 
     // function that takes a slot no then returns the 80 bytes in that slot
     public static byte[] readPKMN(int slot, byte[] saveFile){
-        int pointedAddress = 20484 + (slot*80) + (int) (Math.floor(((slot*80)+4)/3968))*128;
+        //pointed address needs to run a function to find the correct first address,
+        //every time gen 3 saves the sections are rotated, therefore the first block
+        //can be in many different locations. This can be done through the Section id
+        //found unecrypted at 0xFF4. This should theoretically make it so this code can
+        //read pokemon data for all savs, although some sav files are extremly odd
+        int firstAddress = 4100;
+        int pointedAddress = firstAddress + (slot*80) + (int) (Math.floor(((slot*80)+4)/3968))*128;
         byte[] pkmn = new byte[80];
+        //there is a bug where address 49 loads a much later address, look into
         for(int i=0;i<80;i++){
             pkmn[i] = saveFile[pointedAddress];
             pointedAddress = pointedAddress + 1;
