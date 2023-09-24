@@ -12,7 +12,7 @@ public class gui {
 
     public static void main(String[] args) throws Exception {
         currentSlot = 0;
-        FileInputStream save = new FileInputStream("Pokemon Emerald.sav");
+        FileInputStream save = new FileInputStream("S.sav");
         byte[] saveAsByteArray = new byte[131072];
         save.read(saveAsByteArray);
 
@@ -54,10 +54,15 @@ public class gui {
                 if(currentSlot >= 419){currentSlot = 0;}
                 else{currentSlot = currentSlot + 1;}
                 currentSlotDisplay.setText(Integer.toString(currentSlot));
-                index.setText(Integer.toString(SavReadFunctions.readID(SavReadFunctions.readPKMN(currentSlot, saveAsByteArray))));
+                try {
+                    index.setText(Integer.toString(SavReadFunctions.readID(SavReadFunctions.readPKMN(currentSlot, saveAsByteArray))));
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 try {
                     name.setText(SavReadFunctions.indexNameLookup(SavReadFunctions.readID(SavReadFunctions.readPKMN(currentSlot, saveAsByteArray))));
-                } catch (IOException e) {
+                } catch (Exception e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
@@ -70,10 +75,18 @@ public class gui {
                 if(currentSlot <= 0){currentSlot = 419;}
                 else{currentSlot = currentSlot - 1;}
                 currentSlotDisplay.setText(Integer.toString(currentSlot));
-                index.setText(Integer.toString(SavReadFunctions.readID(SavReadFunctions.readPKMN(currentSlot, saveAsByteArray))));
+                try {
+                    index.setText(Integer.toString(SavReadFunctions.readID(SavReadFunctions.readPKMN(currentSlot, saveAsByteArray))));
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 try {
                     name.setText(SavReadFunctions.indexNameLookup(SavReadFunctions.readID(SavReadFunctions.readPKMN(currentSlot, saveAsByteArray))));
                 } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (Exception e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }

@@ -112,13 +112,12 @@ public class SavReadFunctions {
     }
 
     // function that takes a slot no then returns the 80 bytes in that slot
-    public static byte[] readPKMN(int slot, byte[] saveFile){
+    public static byte[] readPKMN(int slot, byte[] saveFile) throws Exception{
         //pointed address needs to run a function to find the correct first address,
         //every time gen 3 saves the sections are rotated, therefore the first block
         //can be in many different locations. This can be done through the Section id
-        //found unecrypted at 0xFF4. This should theoretically make it so this code can
-        //read pokemon data for all savs, although some sav files are extremly odd
-        int firstAddress = 4100;
+        //found unecrypted at 0xFF4.
+        int firstAddress = firstBoxByte(saveFile);
         int pointedAddress = firstAddress + (slot*80) + (int) (Math.floor(((slot*80)+4)/3968))*128;
         byte[] pkmn = new byte[80];
         //there is a bug where address 49 loads a much later address, look into
@@ -153,7 +152,32 @@ public class SavReadFunctions {
             }
             i = i+1;
         }
-
         return byteAsInt;
+    }
+
+    public static boolean isSaveA(byte[] saveFile){
+        if(saveFile[57340]>saveFile[114684]){return true;}
+        else{return false;}
+    }
+
+    public static int firstBoxByte(byte[] saveFile) throws Exception{
+        int bytePointer;
+        boolean found;
+        found = false;
+        if(isSaveA(saveFile)){bytePointer = 4084;}
+        else{bytePointer = 61428;}
+        while(!found){
+            if(saveFile[bytePointer] == 5){
+                bytePointer = bytePointer - 4080;
+                return bytePointer;
+            }
+            else{
+                bytePointer = bytePointer + 4096;
+            }
+            if(bytePointer > 114684){
+                throw new Exception("index not found");
+            }
+        }
+        return bytePointer;
     }
 }
