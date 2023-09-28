@@ -62,14 +62,19 @@ public class SavReadFunctions {
         //because gen 3 saves sections get rotated, This is done through the Section id
         //found unecrypted at 0xFF4 of a section.
         int firstAddress = firstBoxByte(saveFile);
-        int pointedAddress = firstAddress + (slot*80) + (int) (Math.floor(((slot*80)+4)/3968))*128;
+        int pointedAddress =(firstAddress + (slot*80) + (int) (Math.floor(((slot*80)+4)/3968))*128)%57344;
+        if(!isSaveA(saveFile)){pointedAddress = pointedAddress + 57344;}
+        System.out.println(pointedAddress);
         byte[] pkmn = new byte[80];
-        //there is a bug where address 49 loads a much later address, look into
         for(int i=0;i<80;i++){
             pkmn[i] = saveFile[pointedAddress];
             pointedAddress = pointedAddress + 1;
-            if(pointedAddress - (Math.floor(pointedAddress/4096)*4096) > 3968){
-                pointedAddress = pointedAddress + 128;
+            if(pointedAddress - (Math.floor(pointedAddress/4096)*4096) >= (3968)){
+                if(pointedAddress % 57280 == 0){
+                    pointedAddress = pointedAddress - 57216;
+                    System.out.println(pointedAddress);
+                }
+                else{pointedAddress = pointedAddress + 128;}
             }
         }
         return pkmn;
