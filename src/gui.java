@@ -12,7 +12,7 @@ public class gui {
 
     public static void main(String[] args) throws Exception {
         currentSlot = 0;
-        FileInputStream save = new FileInputStream("S.sav");
+        FileInputStream save = new FileInputStream("Pokemon Leaf Green.sav");
         byte[] saveAsByteArray = new byte[131072];
         save.read(saveAsByteArray);
 
