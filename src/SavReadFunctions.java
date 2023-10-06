@@ -87,6 +87,10 @@ public class SavReadFunctions {
         return (listOfStrings.get(indexNo));
     }
 
+    public static int hpLookup(byte[] pkmn){
+        return 0;
+    }
+
     public static long bytesToInt(byte[] bytes){
         int i = 0;
         long byteAsInt = 0;
