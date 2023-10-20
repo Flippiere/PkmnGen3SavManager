@@ -32,7 +32,7 @@ public class gui {
         panel.add(currentSlotDisplay);
         panel.add(next);
 
-        // Text Area at the Center
+        // Center text
         JPanel panel2 = new JPanel();
         JLabel index = new JLabel(Integer.toString(SavReadFunctions.readID(SavReadFunctions.readPKMN(currentSlot, saveAsByteArray))));
         JLabel name = new JLabel(SavReadFunctions.indexNameLookup(SavReadFunctions.readID(SavReadFunctions.readPKMN(currentSlot, saveAsByteArray))));

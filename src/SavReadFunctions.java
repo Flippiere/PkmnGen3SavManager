@@ -38,6 +38,90 @@ public class SavReadFunctions {
     growthOffsetHashMap.put((long)21,36);
     growthOffsetHashMap.put((long)22,24);
     growthOffsetHashMap.put((long)23,36);}
+
+    static final HashMap<Long, Integer> attackOffsetHashMap;
+    static {
+    attackOffsetHashMap = new LinkedHashMap<>();
+    attackOffsetHashMap.put((long)0,12);
+    attackOffsetHashMap.put((long)1,12);
+    attackOffsetHashMap.put((long)2,24);
+    attackOffsetHashMap.put((long)3,36);
+    attackOffsetHashMap.put((long)4,24);
+    attackOffsetHashMap.put((long)5,36);
+    attackOffsetHashMap.put((long)6,0);
+    attackOffsetHashMap.put((long)7,0);
+    attackOffsetHashMap.put((long)8,0);
+    attackOffsetHashMap.put((long)9,0);
+    attackOffsetHashMap.put((long)10,0);
+    attackOffsetHashMap.put((long)11,0);
+    attackOffsetHashMap.put((long)12,24);
+    attackOffsetHashMap.put((long)13,36);
+    attackOffsetHashMap.put((long)14,12);
+    attackOffsetHashMap.put((long)15,12);
+    attackOffsetHashMap.put((long)16,36);
+    attackOffsetHashMap.put((long)17,24);
+    attackOffsetHashMap.put((long)18,24);
+    attackOffsetHashMap.put((long)19,36);
+    attackOffsetHashMap.put((long)20,12);
+    attackOffsetHashMap.put((long)21,12);
+    attackOffsetHashMap.put((long)22,36);
+    attackOffsetHashMap.put((long)23,24);}
+
+    static final HashMap<Long, Integer> evCondOffsetHashMap;
+    static {
+    evCondOffsetHashMap = new LinkedHashMap<>();
+    evCondOffsetHashMap.put((long)0,24);
+    evCondOffsetHashMap.put((long)1,36);
+    evCondOffsetHashMap.put((long)2,12);
+    evCondOffsetHashMap.put((long)3,12);
+    evCondOffsetHashMap.put((long)4,36);
+    evCondOffsetHashMap.put((long)5,24);
+    evCondOffsetHashMap.put((long)6,24);
+    evCondOffsetHashMap.put((long)7,36);
+    evCondOffsetHashMap.put((long)8,12);
+    evCondOffsetHashMap.put((long)9,12);
+    evCondOffsetHashMap.put((long)10,36);
+    evCondOffsetHashMap.put((long)11,24);
+    evCondOffsetHashMap.put((long)12,0);
+    evCondOffsetHashMap.put((long)13,0);
+    evCondOffsetHashMap.put((long)14,0);
+    evCondOffsetHashMap.put((long)15,0);
+    evCondOffsetHashMap.put((long)16,0);
+    evCondOffsetHashMap.put((long)17,0);
+    evCondOffsetHashMap.put((long)18,36);
+    evCondOffsetHashMap.put((long)19,24);
+    evCondOffsetHashMap.put((long)20,36);
+    evCondOffsetHashMap.put((long)21,24);
+    evCondOffsetHashMap.put((long)22,12);
+    evCondOffsetHashMap.put((long)23,12);}
+
+    static final HashMap<Long, Integer> miscOffsetHashMap;
+    static {
+    miscOffsetHashMap = new LinkedHashMap<>();
+    miscOffsetHashMap.put((long)0,36);
+    miscOffsetHashMap.put((long)1,24);
+    miscOffsetHashMap.put((long)2,36);
+    miscOffsetHashMap.put((long)3,24);
+    miscOffsetHashMap.put((long)4,12);
+    miscOffsetHashMap.put((long)5,12);
+    miscOffsetHashMap.put((long)6,36);
+    miscOffsetHashMap.put((long)7,24);
+    miscOffsetHashMap.put((long)8,36);
+    miscOffsetHashMap.put((long)9,24);
+    miscOffsetHashMap.put((long)10,12);
+    miscOffsetHashMap.put((long)11,12);
+    miscOffsetHashMap.put((long)12,36);
+    miscOffsetHashMap.put((long)13,24);
+    miscOffsetHashMap.put((long)14,36);
+    miscOffsetHashMap.put((long)15,24);
+    miscOffsetHashMap.put((long)16,12);
+    miscOffsetHashMap.put((long)17,12);
+    miscOffsetHashMap.put((long)18,0);
+    miscOffsetHashMap.put((long)19,0);
+    miscOffsetHashMap.put((long)20,0);
+    miscOffsetHashMap.put((long)21,0);
+    miscOffsetHashMap.put((long)22,0);
+    miscOffsetHashMap.put((long)23,0);}
     
     //0 indexed 
     public static int readID(byte[] pkmn){
