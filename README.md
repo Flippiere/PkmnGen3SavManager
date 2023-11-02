@@ -1,2 +1,2 @@
-# PkmnGen3SavManager
- A Save manager for the gen 3 pokemon games
+# PkmnGen3SavManager (WIP)
+ A WIP Save manager for the gen 3 pokemon games
