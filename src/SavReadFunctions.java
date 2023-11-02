@@ -140,6 +140,10 @@ public class SavReadFunctions {
         return (int) bytesToInt(pokemonId);
     }
 
+    public static int readHp(byte[] pkmn){
+        return 0;
+    }
+
     // function that takes a slot no then returns the 80 bytes in that slot
     public static byte[] readPKMN(int slot, byte[] saveFile) throws Exception{
         //pointed address needs to find the correct first address,
@@ -169,10 +173,6 @@ public class SavReadFunctions {
         listOfStrings = Files.readAllLines(Paths.get("index.txt"));
 
         return (listOfStrings.get(indexNo));
-    }
-
-    public static int hpLookup(byte[] pkmn){
-        return 0;
     }
 
     public static long bytesToInt(byte[] bytes){
